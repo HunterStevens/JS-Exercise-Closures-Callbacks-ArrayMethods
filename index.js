@@ -302,18 +302,13 @@ function counterMaker() {
 function counterMakerWithLimit(/* CODE HERE */limit) {
   /* CODE HERE */
   let count = -1;
-  function counter(){
-    for(let i = 0; i < limit; i++){
-      if(count < limit){
-        count ++;
-      }
-      else if(count === limit){
-        count ++;
-        i = 0;
-      }
+
+  return function counter() {
+    if(count === limit){
+      count = -1;
     }
-  }
-  return counter();
+    return ++count;
+  };
 }
 
 /////////////// END OF CHALLENGE ///////////////
