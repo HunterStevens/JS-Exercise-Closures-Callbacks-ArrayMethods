@@ -92,9 +92,9 @@ function processLastItem(/* CODE HERE */stringList, callback) {
 function processSum(/* CODE HERE */numberList, callback) {
   /* CODE HERE */
 
-  return callback = numberList.reduce(function(accumulator, current){
-    return accumulator + current;
-  });
+  const reduced = numberList.reduce((accumulator, current) => accumulator + current, 0);
+
+  return callback(reduced);
 }
 
 /**
@@ -115,8 +115,9 @@ function processSum(/* CODE HERE */numberList, callback) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
+function processProduct(/* CODE HERE */num1, num2, callback) {
   /* CODE HERE */
+  return callback(num1 * num2);
 }
 
 /**
@@ -139,8 +140,17 @@ function processProduct(/* CODE HERE */) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
 */
-function processContains(/* CODE HERE */) {
+function processContains(/* CODE HERE */item, list, callback) {
   /* CODE HERE */
+  let exists = false;
+  if(list.indexOf(item) !== -1){
+    exists = true;
+  }
+  else{
+    exists = false;
+  }
+
+  return callback(exists);
 }
 
 /**
@@ -184,8 +194,12 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
+function getFullNames(/* CODE HERE */runners) {
   /* CODE HERE */
+  let fullNames = runners.map(newR => `${newR.last_name}, ${newR.first_name}`)
+
+
+  return fullNames;
 }
 
 /**
@@ -200,8 +214,10 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
+function firstNamesAllCaps(/* CODE HERE */runners) {
   /* CODE HERE */
+
+  return ;
 }
 
 /**
